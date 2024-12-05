@@ -98,7 +98,7 @@ class KnnCpgFeatureExtractor(object):
 
         n = len(x)
         m = len(y)
-        rv = np.empty(n, dtype=int)
+        rv = np.empty(n, dtype=np.int_)
         i = 0
         j = 0
         while i < n and j < m:
@@ -220,9 +220,9 @@ class KmersFeatureExtractor(object):
            :class:`numpy.ndarray` of size MxC with kmer frequencies.
         """
         nb_seq, seq_len = seqs.shape
-        kmer_freq = np.zeros((nb_seq, self.nb_kmer), dtype=int)
+        kmer_freq = np.zeros((nb_seq, self.nb_kmer), dtype=np.int_)
         vec = np.array([self.nb_char**i for i in range(self.kmer_len)],
-                       dtype=int)
+                       dtype=np.int_)
         for i in range(nb_seq):
             for j in range(seq_len - self.kmer_len + 1):
                 kmer = seqs[i, j:(j + self.kmer_len)]
