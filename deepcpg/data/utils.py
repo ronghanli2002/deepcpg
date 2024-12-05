@@ -246,7 +246,7 @@ def read_cpg_profile(filename, chromos=None, nb_sample=None, round=False,
     else:
         usecols = [0, 1, 2]
         skiprows = 0
-    dtype = {usecols[0]: np.str, usecols[1]: np.int32, usecols[2]: np.float32}
+    dtype = {usecols[0]: str, usecols[1]: np.int32, usecols[2]: np.float32}
     nrows = None
     if chromos is None and nb_sample_chromo is None:
         nrows = nb_sample
