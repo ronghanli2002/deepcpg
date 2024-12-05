@@ -98,7 +98,7 @@ class KnnCpgFeatureExtractor(object):
 
         n = len(x)
         m = len(y)
-        rv = np.empty(n, dtype=np.int)
+        rv = np.empty(n, dtype=int)
         i = 0
         j = 0
         while i < n and j < m:
@@ -174,7 +174,7 @@ class IntervalFeatureExtractor(object):
 
         n = len(ys)
         m = len(x)
-        rv = np.empty(m, dtype=np.int)
+        rv = np.empty(m, dtype=int)
         rv.fill(-1)
         i = 0
         j = 0
@@ -220,9 +220,9 @@ class KmersFeatureExtractor(object):
            :class:`numpy.ndarray` of size MxC with kmer frequencies.
         """
         nb_seq, seq_len = seqs.shape
-        kmer_freq = np.zeros((nb_seq, self.nb_kmer), dtype=np.int32)
+        kmer_freq = np.zeros((nb_seq, self.nb_kmer), dtype=int)
         vec = np.array([self.nb_char**i for i in range(self.kmer_len)],
-                       dtype=np.int32)
+                       dtype=int)
         for i in range(nb_seq):
             for j in range(seq_len - self.kmer_len + 1):
                 kmer = seqs[i, j:(j + self.kmer_len)]
