@@ -41,7 +41,8 @@ def in_which(x, ys, ye):
     """
     n = len(ys)
     m = len(x)
-    rv = np.empty(m, dtype=np.int)
+    # rv = np.empty(m, dtype=int)
+    rv = np.empty(m, dtype=int)
     rv.fill(-1)
     i = 0
     j = 0
@@ -207,7 +208,7 @@ def extend_len(start, end, min_len, min_pos=1):
         `tuple` with start end end position of extended intervals.
     """
     delta = np.maximum(0, min_len - (end - start + 1))
-    ext = np.floor(0.5 * delta).astype(np.int)
+    ext = np.floor(0.5 * delta).astype(int)
     start_ext = np.maximum(min_pos, start - ext)
     end_ext = end + np.maximum(0, (min_len - (end - start_ext + 1)))
     assert np.all(min_len <= (end_ext - start_ext + 1))
