@@ -10,7 +10,6 @@ import inspect
 from keras import layers as kl
 from keras import models as km
 from keras import regularizers as kr
-# from keras.layers.merge import concatenate
 from keras.layers import concatenate
 
 from .utils import Model
