@@ -410,10 +410,10 @@ def copy_weights(src_model, dst_model, must_exist=True):
         copied.append(dst_layer.name)
     return copied
 
-
+from tensorflow.keras.layers import InputLayer
 def is_input_layer(layer):
     """Test if `layer` is an input layer."""
-    return isinstance(layer, keras.engine.input_layer.InputLayer)
+    return isinstance(layer, InputLayer)
 
 
 def is_output_layer(layer, model):
