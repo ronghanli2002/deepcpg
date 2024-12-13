@@ -10,7 +10,8 @@ import keras
 from keras import backend as K
 from keras import models as km
 from keras import layers as kl
-from keras.utils.np_utils import to_categorical
+# from keras.utils.np_utils import to_categorical
+from tensorflow.keras.utils import to_categorical
 import numpy as np
 import pandas as pd
 
