@@ -28,8 +28,8 @@ class CpgModel(Model):
     def inputs(self, cpg_wlen, replicate_names):
         inputs = []
         shape = (len(replicate_names), cpg_wlen)
-        inputs.append(kl.Input(shape=shape, name='cpg/state'))
-        inputs.append(kl.Input(shape=shape, name='cpg/dist'))
+        inputs.append(kl.Input(shape=shape, name='cpg_state'))
+        inputs.append(kl.Input(shape=shape, name='cpg_dist'))
         return inputs
 
     def _merge_inputs(self, inputs):
