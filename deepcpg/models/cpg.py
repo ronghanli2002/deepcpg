@@ -56,7 +56,8 @@ class FcAvg(CpgModel):
     def __call__(self, inputs):
         x = self._merge_inputs(inputs)
 
-        shape = getattr(x, '_keras_shape')
+        # shape = getattr(x, '_keras_shape')
+        shape = getattr(x, 'shape')
         replicate_model = self._replicate_model(kl.Input(shape=shape[2:]))
         x = kl.TimeDistributed(replicate_model)(x)
         x = kl.GlobalAveragePooling1D()(x)
@@ -89,7 +90,8 @@ class RnnL1(CpgModel):
     def __call__(self, inputs):
         x = self._merge_inputs(inputs)
 
-        shape = getattr(x, '_keras_shape')
+        # shape = getattr(x, '_keras_shape')
+        shape = getattr(x, 'shape')
         replicate_model = self._replicate_model(kl.Input(shape=shape[2:]))
         x = kl.TimeDistributed(replicate_model)(x)
 
@@ -113,7 +115,8 @@ class RnnL2(RnnL1):
     def __call__(self, inputs):
         x = self._merge_inputs(inputs)
 
-        shape = getattr(x, '_keras_shape')
+        # shape = getattr(x, '_keras_shape')
+        shape = getattr(x, 'shape')
         replicate_model = self._replicate_model(kl.Input(shape=shape[2:]))
         x = kl.TimeDistributed(replicate_model)(x)
 
