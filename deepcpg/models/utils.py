@@ -696,7 +696,9 @@ def data_reader_from_model(model, outputs=True, replicate_names=None):
     encode_replicates = False
 
     input_shapes = to_list(model.input_shape)
-    for input_name, input_shape in zip(model.input_names, input_shapes):
+    # for input_name, input_shape in zip(model.input_names, input_shapes):
+    for input_tensor, input_shape in zip(model.input, input_shapes):
+        input_name = input_tensor.name.split(':')[0]  
         if input_name == 'dna':
             # Read DNA sequences.
             use_dna = True
