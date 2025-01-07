@@ -726,7 +726,8 @@ class App(object):
             class_weights = OrderedDict()
 
         for name in output_names:
-            output = hdf.read(opts.train_files, 'outputs/%s' % name,
+            path = 'cpg/'+name
+            output = hdf.read(opts.train_files, 'outputs/%s' % path,
                               nb_sample=opts.nb_train_sample)
             output = list(output.values())[0]
             output_stats[name] = get_output_stats(output)
