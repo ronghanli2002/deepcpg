@@ -566,7 +566,7 @@ class App(object):
         if not output_names:
             raise ValueError('No outputs found!')
 
-        output_names = [name.replace('/', '_') for name in output_names]
+        output_names = [name.replace('cpg/', '') for name in output_names]
 
         dna_model = None
         if opts.dna_model:
